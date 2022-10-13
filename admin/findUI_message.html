@@ -1,0 +1,81 @@
+<html>
+<head>
+	<title>测试版博客注册系统V3.0</title>
+	<style type="text/css">
+.button {
+	outline: 0;
+	zoom: 1;
+	margin-right:50px;
+	background: #f2f2f2;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: transparent;
+	background-image: url(resource/image/sc.png);
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+	border: 0px;
+}
+</style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script language="javascript" src="resource/js/jquery.js"></script>
+    <script language="javascript" src="resource/js/pageCommon.js" charset="utf-8"></script>
+    <script language="javascript" src="resource/js/PageUtils.js" charset="utf-8"></script>
+    <script language="javascript" src="resource/js/DemoData.js" charset="utf-8"></script>
+	<script language="javascript" src="resource/js/DataShowManager.js" charset="utf-8"></script>
+    <link type="text/css" rel="stylesheet" href="resource/css/pageCommon.css" />
+    <script type="text/javascript"> 
+    </script>
+</head>
+<body> 
+
+<div id="Title_bar">
+        <div id="Title"><!--页面标题-->      
+            <img border="0" width="250" height="100" src="resource/school.png"/> 
+		 </div>	
+    <div id="Title_bar_Head">
+        <div id="Title_Head"><strong><span style="color:#0011FF;font-family: '楷体','楷体_GB2312';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;测试版博客注册系统V3.0</span></strong>
+  		 </div>
+    </div>
+</div>      
+
+<div id="MainArea">
+        
+        <div class="ItemBlockBorder">
+            <div class="ItemBlock">
+             <table id="TableTitle" cellspacing="0" cellpadding="1" class="TableStyle">
+       
+        <!-- 表头-->
+ 
+		<s:iterator id="Sys_news1" value="Sys_news1List" status="status">
+		<!--显示数据列表-->
+		<tbody>
+			<tr>
+				<td style="position:absolute;top:150;left:420px;"><div style="width=200px;text-align:center">班级：物联网（3+2）-1<h2><s:property value="#Sys_news1.cost" /></h2></div></td>
+				<td style="position:absolute;top:150;left:620px;"><div style="width=200px;text-align:center">姓名：王刚<h2><s:property value="#Sys_news1.Message_author" /></h2></div></td>
+				<td style="position:absolute;top:150;left:820px;"><div style="width=200px;text-align:center">学号：202203140027<h2><s:property value="#Sys_news1.perpay" /></h2></div></td>
+			</tr>
+        </tbody>
+        </s:iterator>
+    </table>
+      
+                <table cellpadding="0" cellspacing="0" class="mainForm">
+                        <p></p>
+                   <tr>
+                  		<td style="width:600px;height:200px;margin-top:480px;"></td>
+                        <td style="position:absolute;top:220px;left:500px;"><h2>&nbsp;&nbsp;&nbsp;您当前状态为：未注册</h2></td><!-- 已注册、未注册、已请假 -->
+                        <td style="position:absolute;top:220px;left:700px;color:red;"><h2><s:property value="#Sys_news1.Title_name" /></h2></td> 
+                    	 <td ><a href="login.html"><input style="position:absolute;top:295px;left:520px;"type="image" src="resource/zhuce.png"  width="60" namespace="/userLogin"/></a></td>
+						<td ><a href="index.html"><input style="position:absolute;top:295px;left:720px;"type="image" src="resource/qingjia.png"  width="60"  namespace="/userLogin" /></a></td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>       
+</div>
+   <hr size=1 style="color:#0099FF"></hr>
+    <div> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="../index.html"><img src="resource/fan.png" width ="80px;"/></a></div>   
+	<div style="position:absolute;bottom:50px;left:520px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;版权所有：逆鳞
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2022年10月13日
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E-mail:2945333@qq.com</div>
+</body>    </html>

@@ -1,0 +1,40 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+<title>测试版博客注册系统V3.0</title> 
+<style>
+body {
+ background: #91c0e3; 
+}
+img {
+  display: block;
+margin: 0 auto;
+}
+canvas {
+display: block;
+position:absolute;
+left:450px;
+}
+</style>
+<script type="text/javascript">
+</script>
+</head>
+<body>
+<div style="height:100;width:500px;margin-top:10px;;margin-left:-20px;"><img border="0" width="250" height="100" src="resource/school.png"/></div>
+<div style="position:absolute;top:100;left:300;height:50;width:965px;font-size:39px;color:#0011FF;font-family: '楷体','楷体_GB2312';">            测试版博客注册系统V3.0</div>
+<canvas id="c" width="400" height="500"></canvas
+<div style="position:absolute;left:580;top:500;height:100;width:160px;">正在进入请稍后......</div>
+<script src="resource/js/index.js"></script>
+<script>
+function countDown(secs,surl){        
+	 if(--secs>0){     
+	     setTimeout("countDown("+secs+",'"+surl+"')",1600);     
+	     }     
+	 else{       
+	     location.href=surl;     
+	     }     
+	 }     
+</script>
+<script type="text/javascript">countDown(2,'index.html');</script>  
+</body>
+</html>

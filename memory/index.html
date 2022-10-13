@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+<head>
+	<title>027</title>
+	<meta charset='utf-8' />
+	<script src='js/jquery.js'></script>
+	<script src='js/api.js'></script>
+	<style>
+	html,body{
+		height:99%;
+	}
+	body{
+		background:url(img/background.jpg) 0 0 no-repeat;
+		background-size:100% 100%;
+	}
+	.one{
+		width:500px;
+		height:500px;
+		vertical-align:middle;
+		margin:0 auto;
+	}
+	.two{
+		width:110px;
+		height:110px;
+		margin-left:10px;
+		margin-top:30px;
+		float:left;
+	}
+	img{
+		width:100px;
+		height:100px;
+	}
+	.three{
+		display:none;
+		}
+	.show .three{
+		display:block;
+	}
+	.show .back
+	{
+		display:none;
+	}
+	.status{
+		text-align:center;
+		color:yellow;
+	}
+
+	</style>
+</head>
+<body> 
+	<div class="one" >
+		<div class="two">
+			<img class="three" src="./img/ic_img1.png">
+			<img class="back" src="./img/ic_memory_back.png">
+			</div>
+		<div class="two">
+			<img class="three" src="./img/ic_img2.png">
+			<img class="back" src="./img/ic_memory_back.png">
+			</div>
+		<div class="two">
+			<img class="three" src="./img/ic_img3.png">
+			<img class="back" src="./img/ic_memory_back.png">
+			</div>
+		<div class="two">
+			<img class="three" src="./img/ic_img4.png">
+			<img class="back" src="./img/ic_memory_back.png">
+			</div>
+		<div class="two">
+			<img class="three" src="./img/ic_img5.png">
+			<img class="back" src="./img/ic_memory_back.png">
+			</div>
+		<div class="two">
+			<img class="three" src="./img/ic_img6.png">
+			<img class="back" src="./img/ic_memory_back.png">
+			</div>
+		<div class="two">
+			<img class="three" src="./img/ic_img7.png">
+			<img class="back" src="./img/ic_memory_back.png">
+			</div>
+		<div class="two">
+			<img class="three" src="./img/ic_img8.png">
+			<img class="back" src="./img/ic_memory_back.png">
+			</div>
+		<div class="two">
+			<img class="three" src="./img/ic_img8.png">
+			<img class="back" src="./img/ic_memory_back.png">
+			</div>
+		<div class="two">
+			<img class="three" src="./img/ic_img7.png">
+			<img class="back" src="./img/ic_memory_back.png">
+			</div>
+		<div class="two">
+			<img class="three" src="./img/ic_img6.png">
+			<img class="back" src="./img/ic_memory_back.png">
+			</div>
+		<div class="two">
+			<img class="three" src="./img/ic_img5.png">
+			<img class="back" src="./img/ic_memory_back.png">
+			</div>
+		<div class="two">
+			<img class="three" src="./img/ic_img4.png">
+			<img class="back" src="./img/ic_memory_back.png">
+			</div>
+		<div class="two">
+			<img class="three" src="./img/ic_img3.png">
+			<img class="back" src="./img/ic_memory_back.png">
+			</div>
+		<div class="two">
+			<img class="three" src="./img/ic_img2.png">
+			<img class="back" src="./img/ic_memory_back.png">
+			</div>
+		<div class="two">
+			<img class="three" src="./img/ic_img1.png">
+			<img class="back" src="./img/ic_memory_back.png">
+		</div>
+		<div class="status">
+			<span class="success">0</span>/<span class="fail">0</span>	 <span class="lv"></span> <span class="zong"></span>
+		</div>
+	</div>
+	<button class="cishu">失败次数：<virus class="fail"></virus>
+		<br>成功次数：<virus class="success"></virus>
+		<br>总次数：<virus class="zong"></virus>
+		<br>成功率：<virus class="lv"></virus>
+	</button>
+
+	<div id="dg" style="z-index: 9999; position: fixed ! important; right: 60px; top: 60px;">
+		<table width=""100% style="position: absolute; width:260px; right: 0px; top: 0px;">
+			<a href="../index.html"><button class="fanhui">返回个人博客测试版v3.0</button></a>
+		</table>
+	</div>
+	
+	<script>
+	    var clickCount = 0;
+		var lastObj = null;
+		var successCount = 0;
+		var inited = false;
+		var failCount = 0;
+
+		function start() {
+		
+		clickCount = 0;
+		lastObj = null;
+		successCount = 0;
+		failCount = 0;
+		
+		$(".success").html(successCount)
+		$(".fail").html(failCount)
+		relive($(".two"));
+		$(".two").css("opacity",1).removeClass("show");
+		
+		randomImg($(".three"),"img");
+		}
+		
+		start();
+		
+		$(".two").click(function(){
+		
+			if (!checkAble($(this))) {
+			return;
+			}
+			
+			if (clickCount == 0) {
+			    showFront($(this));
+				lastObj=$(this);
+				clickCount=1;
+			}else if (clickCount == 1) {
+				showFront($(this));
+				if (lastObj.find(".three").attr("src") == $(this).find(".three").attr("src") && lastObj[0] != $(this)[0]) {
+
+					hideDiv(lastObj,500);
+					hideDiv($(this),500);
+					successCount++;
+					if (successCount >= 8) {
+						if(lvCount >= 0.3){
+							$(".success").html(successCount)
+							alert("游戏成功！");
+							if(confirm("已经通过一关，是否进入下一关"))
+							{
+								window.location.href='./2.html';	
+							}
+						}else{
+							alert("通关失败！");
+							if(confirm("是否重新开始"))
+							{
+								window.location.href='./index.html';	
+							}
+						}
+					}
+				}else {
+					failCount++;
+					hideFront(lastObj,500);
+					hideFront($(this),500);
+				}
+				zongCount = failCount + successCount;
+				lvCount = successCount / zongCount;
+				lvCount = Math.round(lvCount * 10000) / 100;
+				lvCount += '%';
+				clickCount = 0;
+				$(".success").html(successCount)
+				$(".fail").html(failCount)
+				$(".lv").html(lvCount)
+				$(".zong").html(zongCount)
+			}
+		});
+	</script>
+</body>
+</html>

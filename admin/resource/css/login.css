@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+/* CSS Document */
+body {
+	margin: 0px;
+}
+
+.login_one_logo {
+	background-image: url(../image/logo.png);
+	background-repeat: no-repeat;
+	background-position: left bottom;
+}
+
+.login_two_left_bg {
+	background-image: url(../image/login_two_left_bg.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.login_two_right_title {
+	background-image: url(../image/login_two_right_title.png);
+	background-repeat: no-repeat;
+	background-position: left;
+}
+
+.login_two_right_userinfo_bg {
+	background-image: url(../image/login_two_right_userinfo_bg.png);
+	background-repeat: no-repeat;
+	background-position: left;
+}
+
+.login_two_right_userinfo_textfield {
+	height: 35px;
+	width: 228px;
+	font-size: 16px;
+	color: #666;
+	background-color: transparent;
+	margin-left: 7px;
+	line-height: 35px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+}
+
+.login_two_right_tipinfo1 {
+	font-size: 12px;
+	color: red;
+	padding-left: 37px;
+}
+
+.login_two_right_tipinfo2 {
+	font-size: 12px;
+	color: #666;
+	padding-left: 65px;
+}
+
+.login_three_bg {
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #006E6B;
+}
+
+.login_three {
+	font-size: 12px;
+	color: #666;
+}
+
+.login_one_systemtitle {
+	background-image: url(../image/systemTitle.png);
+	background-repeat: no-repeat;
+	background-position: 80px 60px;
+}
+
+.login_two_right_denglu_button {
+	background-image: url(../image/denglubutton.png);
+	background-repeat: no-repeat;
+	height: 42px;
+	width: 242px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	cursor: pointer;
+}

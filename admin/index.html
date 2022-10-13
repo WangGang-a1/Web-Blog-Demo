@@ -1,0 +1,114 @@
+<html>
+<link rel="stylesheet" type="text/css" href="resource/css/style.css"
+			media="screen" />
+<head>
+    <title>测试版博客注册系统V3.0</title>
+    <link rel="icon" href="resource/find.gif" type="image/x-icon" />
+	<link rel="shortcut icon" href="resource/find.gif" type="image/x-icon" />
+	<script type="text/javascript" src="resource/js/jquery-1.3.2.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Page-Enter" content="revealTrans(Duration=2.0,Transition=15)" />
+    <script language="javascript" src="resource/js/jquery.js"></script>
+    <script language="javascript" src="resource/js/pageCommon.js" charset="utf-8"></script>
+    <script language="javascript" src="resource/js/PageUtils.js" charset="utf-8"></script>
+    <script language="javascript" src="resource/js/DataShowManager.js" charset="utf-8"></script>
+    <link type="text/css" rel="stylesheet" href="resource/css/pageCommon.css" />
+</head>
+<body>
+<div id="Title_bar">
+        <div id="Title"><!--页面标题-->      
+            <img border="0" width="250" height="100" src="resource/school.png"/> 
+		 </div>	
+    <div id="Title_bar_Head">
+        <div id="Title_Head"><strong><span style="color:#0011FF;font-family: '楷体','楷体_GB2312';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;测试版博客注册系统V3.0</span></strong>
+  		 </div>
+    </div>
+</div>      
+<div id="MainArea">
+<div class="ItemBlockBorder">
+<div class="ItemBlock">
+<div style="height:50px;width:1000px;margin-top:-23px;">
+ <!--&nbsp;&nbsp;&nbsp; 
+ <s:form action="userLoginAction_queryLiCai" namespace="/">-->
+ <input type="text" name="condition" value="输入信息" class="InputStyle"  namespace="/userLogin"/>
+ <input style="width: 30px;"type="image" src="resource/find.gif" namespace="/userLogin" />查询注册
+ <!--</s:form>-->
+  </div> <p>
+    <table id="TableTitle"  class="TableStyle" >
+       
+        <!-- 表头-->
+        <thead>
+            <tr align="CENTER" valign="top" id="TableTitle">
+            	<td width="200"><h3>姓名</h3></td>
+                <td width="200"><h3>班级</h3></td>
+                <td width="200"><h3>学号</h3></td>
+                <td width="200"><h3>注册时间</h3></td>
+                <td width="200"><h3>是否注册</h3></td>
+                <td width="200"><h3>取消注册</h3></td>
+            </tr>
+        </thead>
+		<!--显示数据列表-->
+		
+		<s:iterator id="Sys_news1" value="Sys_news1List" status="status">
+		<!--显示数据列表-->
+		<tbody>
+			<tr>
+				<td width="200"><div align="center"><s:property value="#Sys_news1.Message_author" /></div></td>
+				<td width="200"><div align="center"><s:property value="#Sys_news1.cost" /></div></td>
+				<td width="200"><div align="center"><s:property value="#Sys_news1.perpay" /></div></td>
+				<td width="200"><div align="center"><s:property value="#Sys_news1.year" /></div></td>
+				<td width="200"><div align="center"><s:property value="#Sys_news1.Title_name" /></div></td>
+				<td width="200"><div align="center">
+								<!--  <input   type="button" name="id" onclick="update()" value="${id}" id="button"  class="InputStyle" />-->	
+									<a href="../index.html">取消注册</a>
+			        	</div></td><!--onClick="return delConfirm()"-->
+			</tr>
+        </tbody>
+        </s:iterator>
+    </table>
+</div>
+</div>
+	  <br><div id="demo3" style="width:70%"> </div>
+</div>
+<script type="text/javascript" src="resource/js/jquery-1.3.2.js"></script>
+		<script src="resource/js/jquery.paginate.js" type="text/javascript"></script>
+		<script type="text/javascript">
+	$(function() {
+		$("#output").click(function(){
+			window.location.href="outputExcel.action?r="+Math.random();
+		})
+		$("#demo3").paginate( {
+			count : ${allNum},
+			start : ${pageNum},
+			display : 7,
+			border : true,
+			border_color			: 'white',
+			text_color  			: '#004779',
+			background_color    	: '#a4cdec',	
+			border_hover_color		: '#EE82EE',
+			text_hover_color  		: 'blue',
+			background_hover_color	: '#FF8C00',
+			rotate : false,
+			images : false,
+			mouse : 'press',
+			onChange    : function(page){
+			$('._current','#paginationdemo').removeClass('_current').hide();
+			//$('#p'+page).addClass('_current').show();
+			window.location.href='userLoginAction_Bmessage?pageNum='+ encodeURI(encodeURI(page));
+
+			//window.location.href="userLoginAction_showMessageTopic?pageNum="+page;
+		  }
+		});
+
+	});
+</script>
+    <hr size=1 style="color:#0099FF"></hr>
+       <div><a style="TEXT-DECORATION: none" href="javascript:;" id="output"><h4>&nbsp;&nbsp;<img width ="30px;" src="resource/find.gif" />导出数据</a></h4></div>
+	<br>
+	<div align="center">版权所有：王刚<p>2022年10月13<p>E-mail:2945333789@qq.com</div>
+<form action="inputExcel" method="post" enctype="multipart/form-data">
+    	<input type="file" name="inputExcel"/><br/>
+    	<input type="submit" value="导入excel"></input>
+    </form>
+</body>
+</html>
