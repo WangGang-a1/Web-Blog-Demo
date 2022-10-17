@@ -233,6 +233,10 @@
 					hideFront(lastObj,500);
 					hideFront($(this),500);
 				}
+				zongCount = failCount + successCount;
+				lvCount = successCount / zongCount;
+				lvvCount = Math.round(lvCount * 10000) / 100;
+				lvvCount += '%';
 				clickCount = 0;
 				$(".success").html(successCount)
 				$(".fail").html(failCount)
