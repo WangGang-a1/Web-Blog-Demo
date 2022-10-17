@@ -1,11 +1,11 @@
 <!doctype html>
 <html>
 <head>
-	<title>027</title>
+	<title>记忆小游戏 第二关</title>
 	<meta charset='utf-8' />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
 	<script src='js/jquery.js'></script>
-	<script src='js/api.js'></script>
+	<script src='js/api2.js'></script>
 	<style>
 	html,body{
 		height:99%;
@@ -41,11 +41,24 @@
 	{
 		display:none;
 	}
-	.status{
+	status{
 		text-align:center;
 		color:yellow;
 	}
-
+	.btn {
+      background-color: #0367a6;
+      background-image: linear-gradient(90deg, #0367a6 0%, #008997 74%);
+      border-radius: 20px;
+      border: 1px solid #0367a6;
+      color: #e9e9e9;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: bold;
+      letter-spacing: 0.1rem;
+      padding: 0.9rem 4rem;
+      text-transform: uppercase;
+      transition: transform 80ms ease-in;
+    }
 	</style>
 </head>
 <body> 
@@ -83,6 +96,22 @@
 			<img class="back" src="./img/ic_memory_back.png">
 			</div>
 		<div class="two">
+			<img class="three" src="./img/ic_img9.png">
+			<img class="back" src="./img/ic_memory_back.png">
+			</div>
+		<div class="two">
+			<img class="three" src="./img/ic_img10.png">
+			<img class="back" src="./img/ic_memory_back.png">
+			</div>
+		<div class="two">
+			<img class="three" src="./img/ic_img10.png">
+			<img class="back" src="./img/ic_memory_back.png">
+			</div>
+		<div class="two">
+			<img class="three" src="./img/ic_img9.png">
+			<img class="back" src="./img/ic_memory_back.png">
+			</div>
+		<div class="two">
 			<img class="three" src="./img/ic_img8.png">
 			<img class="back" src="./img/ic_memory_back.png">
 			</div>
@@ -115,27 +144,30 @@
 			<img class="back" src="./img/ic_memory_back.png">
 		</div>
 		<div class="status">
-			<span class="success">0</span>/<span class="fail">0</span>	 <span class="lv"></span> <span class="zong"></span>
+			<span class="success">0</span>/<span class="fail">0</span>
+		</div>
+		<div hidden="hidden">
+			<span class="lv"></span><span class="zong"></span><span class="lvv"></span>
 		</div>
 	</div>
-	<button class="cishu">失败次数：<virus class="fail"></virus>
+	<button class="btn">配对次数：<virus class="fail"></virus>
 		<br>成功次数：<virus class="success"></virus>
 		<br>总次数：<virus class="zong"></virus>
-		<br>成功率：<virus class="lv"></virus>
-	</button>
-
-	<div id="dg" style="z-index: 9999; position: fixed ! important; right: 60px; top: 60px;">
-		<table width=""100% style="position: absolute; width:260px; right: 0px; top: 0px;">
-			<a href="../index.html"><button class="fanhui">返回个人博客测试版v3.0</button></a>
-		</table>
-	</div>
-	
+		<br>成功率：<virus class="lvv"></virus></button>
+		
+		<div id="dg" style="z-index: 9999; position: fixed ! important; right: 40px; top: 40px;">
+			<table width=""100% style="position: absolute; width: 300px; right: 30px; top: 30px;">
+				<button class="btn" onclick='location.href=("../index.html")'>返回博客</button>
+			</table>
+		</div>
 	<script>
 	    var clickCount = 0;
 		var lastObj = null;
 		var successCount = 0;
 		var inited = false;
 		var failCount = 0;
+		var lvCount = 0;
+		var zongCount = 0;
 
 		function start() {
 		
@@ -143,14 +175,19 @@
 		lastObj = null;
 		successCount = 0;
 		failCount = 0;
-		
+		lvCount = 0;
+
 		$(".success").html(successCount)
 		$(".fail").html(failCount)
+		$(".lv").html(lvCount)
+		$(".zong").html(zongCount)
+
 		relive($(".two"));
 		$(".two").css("opacity",1).removeClass("show");
 		
 		randomImg($(".three"),"img");
 		}
+		
 		
 		start();
 		
@@ -171,19 +208,23 @@
 					hideDiv(lastObj,500);
 					hideDiv($(this),500);
 					successCount++;
-					if (successCount >= 8) {
+					zongCount = failCount + successCount;
+					lvCount = successCount / zongCount;
+					lvvCount = Math.round(lvCount * 10000) / 100;
+					lvvCount += '%';
+					if (successCount >= 10) {
 						if(lvCount >= 0.3){
 							$(".success").html(successCount)
 							alert("游戏成功！");
-							if(confirm("已经通过一关，是否进入下一关"))
+							if(confirm("已经通过两关。恭喜通过所有关卡是否重新开始"))
 							{
-								window.location.href='./2.html';	
+								window.location.href='./level1.html';	
 							}
 						}else{
 							alert("通关失败！");
 							if(confirm("是否重新开始"))
 							{
-								window.location.href='./index.html';	
+								window.location.href='./level2.html';	
 							}
 						}
 					}
@@ -192,15 +233,13 @@
 					hideFront(lastObj,500);
 					hideFront($(this),500);
 				}
-				zongCount = failCount + successCount;
-				lvCount = successCount / zongCount;
-				lvCount = Math.round(lvCount * 10000) / 100;
-				lvCount += '%';
 				clickCount = 0;
 				$(".success").html(successCount)
 				$(".fail").html(failCount)
 				$(".lv").html(lvCount)
+				$(".lvv").html(lvvCount)
 				$(".zong").html(zongCount)
+
 			}
 		});
 	</script>
