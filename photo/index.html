@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+      <meta charset="UTF-8">
+      <meta name="Keywords" content="">
+      <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+      <meta name="Description" content="">
+      <title>照片墙-博客测试版V3.0</title>
+      <!-- 层叠样式表 -->
+      <style type="text/css">
+            * {
+                  margin: 0;
+                  padding: 0;
+            }
+ 
+            body {
+                  background: #222;
+                  overflow: hidden;
+                  /* 取消选中 */
+                  user-select: none;
+ 
+            }
+ 
+            @keyframes rotate {
+                  100% {
+                        transform: rotateY(360deg);
+                  }
+            }
+ 
+            .perspective {
+                  /*子元素透视 场景深度*/
+                  perspective: 600px;
+            }
+ 
+            .wrap {
+                  /* 3d */
+                  width: 135px;
+                  height: 240px;
+                  margin: 100px auto;
+                  position: relative;
+                  /* border: 1px solid red; */
+                  transform: rotateX(-20deg) rotateY(0deg);
+                  transform-style: preserve-3d;
+ 
+            }
+ 
+            .wrap img {
+                  display: block;
+                  /* 绝对定位 */
+                  position: absolute;
+                  width: 100%;
+                  height: 100%;
+                  transform: rotateY(0deg) translateZ(0px);
+                  background: transparent;
+                  box-shadow: 0 0 4px #fff;
+                  border-radius: 5px;
+ 
+                  /* webkit */
+            }
+ 
+            /* 照片底座 */
+            .wrap p {
+                  width: 1200px;
+                  height: 1200px;
+                  background: -webkit-radial-gradient(center center, 600px 600px, rgba(122, 122, 122, .5), rgba(0, 0, 0, 0));
+                  position: absolute;
+                  border-radius: 50%;
+                  left: 50%;
+                  top: 100%;
+                  margin-left: -600px;
+                  margin-top: -600px;
+                  /* 沿着x轴按倒 */
+                  transform: rotateX(90deg);
+ 
+            }
+            /*按钮样式*/
+            .btn {
+                  background-color: #0367a6;
+                  background-image: linear-gradient(90deg, #0367a6 0%, #008997 74%);
+                  border-radius: 20px;
+                  border: 1px solid #0367a6;
+                  color: #e9e9e9;
+                  cursor: pointer;
+                  font-size: 0.8rem;
+                  font-weight: bold;
+                  letter-spacing: 0.1rem;
+                  padding: 0.9rem 4rem;
+                  text-transform: uppercase;
+                  transition: transform 80ms ease-in;
+            }
+      </style>
+      <!--实现放大居中效果-->
+      <style>
+
+		.drawing{
+			width: 150px;
+			margin: 10px;
+		}
+		.drawing:hover{
+			cursor: zoom-in;
+		}
+		.wrapper{
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 999;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-position: center;
+			background-color: rgba(52, 52, 52, 0.8);
+			background-size: 100%;
+		}
+		.wrapper:hover{
+			cursor: zoom-out;
+		}
+	</style>
+      <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+      <script>
+		$(function(){
+			$('.drawing').click(function(){
+				//查看大图
+				$(this).after("<div class='wrapper'></div>");
+                        $('.wrapper').fadeOut(0);
+                        //修改大小
+                        $(".wrapper").width(324).height(576);
+                        //获取图片
+				var imgSrc = $(this).attr('src');
+                        //图片设置背景
+                        $(".wrapper").css("background-image", "url(" + imgSrc + ")").fadeIn(2000);
+				//关闭并移除图层
+				$('.wrapper').click(function(){
+					$('.wrapper').fadeOut(2000);
+				});  
+			});
+            });
+	</script>
+      <!--------------------------------->
+</head>
+ 
+<body>
+
+      <div id="dg" style="z-index: 9999; position: fixed ! important; right: 40px; top: 40px;">
+		<table width=""100% style="position: absolute; width: 300px; right: 30px; top: 30px;">
+			<butto class="btn" onclick='location.href=("../index.html")'>返回博客</button>
+		</table>
+	</div>
+
+      <!-- 盒子容器 -->
+      <div class="perspective" id="next">
+            <div class="wrap" id="imgwrap">
+                  <!-- 引入图片值页面 1-->
+                  <img class="f1 drawing" src="img/12.jpg" />
+                  <img class="f1 drawing" src="img/13.jpg" />
+                  <img class="f1 drawing" src="img/14.jpg" />
+                  <img class="f1 drawing" src="img/15.jpg" />
+                  <img class="f1 drawing" src="img/16.jpg" />
+                  <img class="f1 drawing" src="img/1.jpg" />
+                  <img class="f1 drawing" src="img/2.jpg" />
+                  <img class="f1 drawing" src="img/3.jpg" />
+                  <img class="f1 drawing" src="img/4.jpg" />
+                  <img class="f1 drawing" src="img/5.jpg" />
+                  <img class="f1 drawing" src="img/6.jpg" />
+                  <img class="f1 drawing" src="img/7.jpg" />
+                  <img class="f1 drawing" src="img/5.jpg" />
+                  <img class="f1 drawing" src="img/6.jpg" />
+                  <img class="f1 drawing" src="img/7.jpg" />
+                  <img class="f1 drawing" src="img/8.jpg" />
+                  <img class="f1 drawing" src="img/9.jpg" />
+                  <img class="f1 drawing" src="img/10.jpg" />
+                  <img class="f1 drawing" src="img/11.jpg" />
+ 
+                  <img class="f1 drawing" src="img/17.jpg" />
+                  <img class="f1 drawing" src="img/18.jpg" />
+                  <img class="f1 drawing" src="img/19.jpg" />
+                  <img class="f1 drawing" src="img/20.jpg" />
+                  <img class="f1 drawing" src="img/21.jpg" />
+                  <img class="f1 drawing" src="img/22.jpg" />
+                  <img class="f1 drawing" src="img/23.jpg" />
+                  <img class="f1 drawing" src="img/24.jpg" />
+                  <img class="f1 drawing" src="img/25.jpg" />
+                  <img class="f1 drawing" src="img/26.jpg" />
+                  <img class="f1 drawing" src="img/27.jpg" />
+                  <img class="f1 drawing" src="img/28.jpg" />
+                  <img class="f1 drawing" src="img/29.jpg" />
+                  <img class="f1 drawing" src="img/30.jpg" />
+ 
+                  <!-- 引入图片值页面 2-->
+                  <img class="f2 drawing" src="img/1.jpg" />
+                  <img class="f2 drawing" src="img/2.jpg" />
+                  <img class="f2 drawing" src="img/3.jpg" />
+                  <img class="f2 drawing" src="img/4.jpg" />
+                  <img class="f2 drawing" src="img/5.jpg" />
+ 
+                  <img class="f2 drawing" src="img/9.jpg" />
+                  <img class="f2 drawing" src="img/10.jpg" />
+                  <img class="f2 drawing" src="img/11.jpg" />
+                  <img class="f2 drawing" src="img/12.jpg" />
+                  <img class="f2 drawing" src="img/25.jpg" />
+                  <img class="f2 drawing" src="img/26.jpg" />
+                  <img class="f2 drawing" src="img/27.jpg" />
+                  <img class="f2 drawing" src="img/28.jpg" />
+                  <img class="f2 drawing" src="img/29.jpg" />
+                  <img class="f2 drawing" src="img/30.jpg" />
+                  <img class="f2 drawing" src="img/13.jpg" />
+                  <img class="f2 drawing" src="img/14.jpg" />
+                  <img class="f2 drawing" src="img/15.jpg" />
+                  <img class="f2 drawing" src="img/16.jpg" />
+                  <img class="f2 drawing" src="img/17.jpg" />
+                  <img class="f2 drawing" src="img/18.jpg" />
+                  <img class="f2 drawing" src="img/19.jpg" />
+                  <img class="f2 drawing" src="img/20.jpg" />
+                  <img class="f2 drawing" src="img/21.jpg" />
+                  <img class="f2 drawing" src="img/22.jpg" />
+                  <img class="f2 drawing" src="img/23.jpg" />
+                  <img class="f2 drawing" src="img/24.jpg" />
+                  <img class="f2 drawing" src="img/6.jpg" />
+                  <img class="f2 drawing" src="img/7.jpg" />
+                  <img class="f2 drawing" src="img/5.jpg" />
+                  <img class="f2 drawing" src="img/6.jpg" />
+                  <img class="f2 drawing" src="img/7.jpg" />
+                  <img class="f2 drawing" src="img/8.jpg" />
+                  <!-- 引入图片值页面 3-->
+ 
+                  <img class="f3 drawing" src="img/1.jpg" />
+                  <img class="f3 drawing" src="img/2.jpg" />
+                  <img class="f3 drawing" src="img/11.jpg" />
+                  <img class="f3 drawing" src="img/12.jpg" />
+                  <img class="f3 drawing" src="img/25.jpg" />
+                  <img class="f3 drawing" src="img/26.jpg" />
+                  <img class="f3 drawing" src="img/27.jpg" />
+                  <img class="f3 drawing" src="img/3.jpg" />
+                  <img class="f3 drawing" src="img/4.jpg" />
+                  <img class="f3 drawing" src="img/5.jpg" />
+ 
+ 
+                  <img class="f3 drawing" src="img/16.jpg" />
+                  <img class="f3 drawing" src="img/17.jpg" />
+                  <img class="f3 drawing" src="img/18.jpg" />
+                  <img class="f3 drawing" src="img/10.jpg" />
+ 
+                  <img class="f3 drawing" src="img/28.jpg" />
+                  <img class="f3 drawing" src="img/29.jpg" />
+                  <img class="f3 drawing" src="img/30.jpg" />
+                  <img class="f3 drawing" src="img/13.jpg" />
+ 
+                  <img class="f3 drawing" src="img/19.jpg" />
+                  <img class="f3 drawing" src="img/20.jpg" />
+                  <img class="f3 drawing" src="img/21.jpg" />
+                  <img class="f3 drawing" src="img/22.jpg" />
+                  <img class="f3 drawing" src="img/23.jpg" />
+                  <img class="f3 drawing" src="img/24.jpg" />
+                  <img class="f3 drawing" src="img/9.jpg" />
+                  <img class="f3 drawing" src="img/14.jpg" />
+                  <img class="f3 drawing" src="img/15.jpg" />
+                  <img class="f3 drawing" src="img/6.jpg" />
+                  <img class="f3 drawing" src="img/7.jpg" />
+                  <img class="f3 drawing" src="img/5.jpg" />
+                  <img class="f3 drawing" src="img/6.jpg" />
+                  <img class="f3 drawing" src="img/7.jpg" />
+                  <img class="f3 drawing" src="img/8.jpg" />
+ 
+ 
+                  <p></p>
+            </div>
+      </div>
+      <!--  src="JS/photo.js" -->
+      <script type="text/javascript">
+            var oImg = document.getElementsByClassName('f1')
+            var oImg2 = document.getElementsByClassName('f2')
+            var oImg3 = document.getElementsByClassName('f3')
+            var len = oImg.length;
+            console.log(len)
+            var deg = 360 / len;
+ 
+            var oWrap = document.getElementById("imgwrap");
+
+
+            //页面加载完毕在执行的代码
+            window.onload = function () {
+                  Array.prototype.forEach.call(oImg, function (ele, index, self) {
+                        // 旋转并沿Z轴平移
+                        ele.style.transform = "rotateY(" + deg * index + "deg) translateZ(645.75px)";
+                        //过渡时间1s
+                        ele.style.transition = "1s " + (len - index) * 0.1 + "s";
+ 
+                  });
+                  Array.prototype.forEach.call(oImg2, function (ele, index, self) {
+                        // 旋转并沿Z轴平移
+                        ele.style.transform = "rotateY(" + deg * index + "deg) translateZ(645.75px) translateY(240px)";
+                        //过渡时间1s
+                        ele.style.transition = "1s " + (len - index) * 0.1 + "s";
+ 
+                  });
+                  Array.prototype.forEach.call(oImg3, function (ele, index, self) {
+                        // 旋转并沿Z轴平移
+                        ele.style.transform = "rotateY(" + deg * index + "deg) translateZ(645.75px) translateY(480px)";
+                        //过渡时间1s
+                        ele.style.transition = "1s " + (len - index) * 0.1 + "s";
+ 
+                  });
+            }
+            //翻动3D相册
+            var newX, newY, lastX, lastY, minusX, minusY, rotX = -20, rotY = 0;
+ 
+            document.onmousedown = function (e) {
+                  // 点击设置初值
+                  lastX = e.clientX;
+                  lastY = e.clientY;
+ 
+                  this.onmousemove = function (e) {
+                        newX = e.clientX;
+                        newY = e.clientY;
+                        minusX = newX - lastX;
+                        minusY = newY - lastY;
+ 
+                        rotX -= minusY * 0.2;
+                        rotY += minusX * 0.1;
+                        oWrap.style.transform = "rotateX(" + rotX + "deg) rotateY(" + rotY + "deg)";
+                        lastX = newX;
+                        lastY = newY;
+ 
+                  }
+                  this.onmouseup = function (e) {
+                        //鼠标松开
+                        this.onmousemove = null;//清除鼠标移动
+                  }
+            }
+ 
+      </script>
+</body>
+ 
+</html>
