@@ -67,10 +67,13 @@ window.onload=function(){
             if (dataJson[i].username==login.username&&dataJson[i].password==login.password) {
                 success=1;
                 document.write('<h1>恭喜登录成功</h1>');
+                document.close();
                 var next = '<a id=1>'+'登录名: '+oUser.value+'</a>'+'<br>'+'<a id=2>'+'IP: '+returnCitySN["cip"]+'</a>'+'<br>'+'<a id=3>'+'IP所在地: '+
                                 returnCitySN["cname"]+'(仅供参考)'+'</a>'+'<br>'+'<a id=4>'+'登录时间详细: '+d+'</a>';
                 document.write(next);
+                document.close();
                 document.write('<br>'+'将在三秒内自动保存日志并跳转到管理页面');
+                document.close();
                 document.write("<script>"+
                                     ''+
                                         "var a1=document.getElementById('1').innerText;"+
@@ -81,6 +84,7 @@ window.onload=function(){
                                         "var blob = new Blob([next],{ type: 'text/plain;charset=utf-8'});"+
                                         'saveAs(blob, "log.txt");'+
                                 '</script>');
+                document.close();
                 function jump(){
                     window.location.href='../admin/index.html';
                 }
