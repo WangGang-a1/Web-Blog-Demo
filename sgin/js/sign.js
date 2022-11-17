@@ -62,11 +62,12 @@ window.onload=function(){
         var dataJson=window.localStorage.getItem('list');
         var success=null;
         var d =new Date();
+        var next=null;
         dataJson=eval('(' + dataJson + ')');
         for (var i=0;i<dataJson.length;i++) {
             if (dataJson[i].username==login.username&&dataJson[i].password==login.password) {
                 success=1;
-                var next = '<a id=1>'+'登录名: '+oUser.value+'</a>'+'<br>'+'<a id=2>'+'IP: '+returnCitySN["cip"]+'</a>'+'<br>'+'<a id=3>'+'IP所在地: '+
+                next = '<a id=1>'+'登录名: '+oUser.value+'</a>'+'<br>'+'<a id=2>'+'IP: '+returnCitySN["cip"]+'</a>'+'<br>'+'<a id=3>'+'IP所在地: '+
                                 returnCitySN["cname"]+'(仅供参考)'+'</a>'+'<br>'+'<a id=4>'+'登录时间详细: '+d+'</a>';
                 document.write('<h1>恭喜登录成功</h1>'+next+
                                 '<br>'+'将在三秒内自动保存日志并跳转到管理页面'+
