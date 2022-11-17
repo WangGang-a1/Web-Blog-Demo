@@ -4,63 +4,7 @@
 	<title>记忆小游戏 第一关</title>
 	<meta charset='utf-8' />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
-	<script src='js/jquery.js'></script>
-	<script src='js/api.js'></script>
-	<style>
-	html,body{
-		height:99%;
-	}
-	body{
-		background:url(img/background.jpg) 0 0 no-repeat;
-		background-size:100% 100%;
-	}
-	.one{
-		width:500px;
-		height:500px;
-		vertical-align:middle;
-		margin:0 auto;
-	}
-	.two{
-		width:110px;
-		height:110px;
-		margin-left:10px;
-		margin-top:30px;
-		float:left;
-	}
-	img{
-		width:100px;
-		height:100px;
-	}
-	.three{
-		display:none;
-		}
-	.show .three{
-		display:block;
-	}
-	.show .back
-	{
-		display:none;
-	}
-	.status{
-		text-align:center;
-		color:yellow;
-	}
-	.btn {
-      background-color: #0367a6;
-      background-image: linear-gradient(90deg, #0367a6 0%, #008997 74%);
-      border-radius: 20px;
-      border: 1px solid #0367a6;
-      color: #e9e9e9;
-      cursor: pointer;
-      font-size: 0.8rem;
-      font-weight: bold;
-      letter-spacing: 0.1rem;
-      padding: 0.9rem 4rem;
-      text-transform: uppercase;
-      transition: transform 80ms ease-in;
-    }
-
-	</style>
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body> 
 	<div class="one" >
@@ -147,84 +91,8 @@
 		</table>
 	</div>
 	
-	<script>
-	    var clickCount = 0;
-		var lastObj = null;
-		var successCount = 0;
-		var inited = false;
-		var failCount = 0;
-
-		function start() {
-		
-		clickCount = 0;
-		lastObj = null;
-		successCount = 0;
-		failCount = 0;
-		
-		$(".success").html(successCount)
-		$(".fail").html(failCount)
-		relive($(".two"));
-		$(".two").css("opacity",1).removeClass("show");
-		
-		randomImg($(".three"),"img");
-		}
-		
-		start();
-		
-		$(".two").click(function(){
-		
-			if (!checkAble($(this))) {
-			return;
-			}
-			
-			if (clickCount == 0) {
-			    showFront($(this));
-				lastObj=$(this);
-				clickCount=1;
-			}else if (clickCount == 1) {
-				showFront($(this));
-				if (lastObj.find(".three").attr("src") == $(this).find(".three").attr("src") && lastObj[0] != $(this)[0]) {
-
-					hideDiv(lastObj,500);
-					hideDiv($(this),500);
-					successCount++;
-					zongCount = failCount + successCount;
-				    lvCount = successCount / zongCount;
-					lvvCount = Math.round(lvCount * 10000) / 100;
-					lvvCount += '%';
-					if (successCount >= 8) {
-						if(lvCount >= 0.3){
-							$(".success").html(successCount)
-							alert("游戏成功！");
-							if(confirm("已经通过一关，是否进入下一关"))
-							{
-								window.location.href='./level2.html';	
-							}
-						}else{
-							alert("通关失败！");
-							if(confirm("是否重新开始"))
-							{
-								window.location.href='./level1.html';	
-							}
-						}
-					}
-				}else {
-					failCount++;
-					hideFront(lastObj,500);
-					hideFront($(this),500);
-				}
-				zongCount = failCount + successCount;
-				lvCount = successCount / zongCount;
-				lvvCount = Math.round(lvCount * 10000) / 100;
-				lvvCount += '%';
-				clickCount = 0;
-				$(".success").html(successCount)
-				$(".fail").html(failCount)
-				$(".lv").html(lvCount)
-				$(".lvv").html(lvvCount)
-				$(".zong").html(zongCount)
-			}
-		});
-	</script>
+	<script src='js/jquery.js'></script>
+	<script src='js/api1.js'></script>
+	<script src='js/level1.js'></script>
 </body>
 </html>

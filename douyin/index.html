@@ -1,0 +1,83 @@
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<title>高仿抖音</title>
+<link rel="stylesheet" href="css/style.css">
+<link href="css/jquery.allofthelights.css" rel="stylesheet">
+
+
+
+<body>
+    <div style="width:100%; margin-top:20px; color:#fff;font-size:16px; display: inline-block; text-align:center;">
+		<input type="text" name="" id="videoSearch" placeholder="请输入视频名称" list="videoList">
+		<datalist id="videoList">
+			<option>@1</option>
+			<option>@2</option>
+			<option>@3</option>
+			<option>@4</option>
+			<option>@5</option>
+		</datalist>
+		<button  style="color:white;"onclick="goVideo()">跳转</button>
+	</div>
+	
+	<div class="liker">
+		<canvas class="hearts-canvas"></canvas>
+		<button class="btn">
+			<svg width="24" height="24" viewBox="0 0 24 24">
+				<path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"></path>
+			</svg>
+		</button>
+		<span>快来点赞吧</span>
+	</div>
+
+	<div id="dg" style="z-index: 9999; position: fixed ! important; right: 40px; top: 40px;">
+		<table width=""100% style="position: absolute; width: 300px; right: 30px; top: 30px;">
+			<butto class="dg" onclick='location.href=("../index.html")'>返回博客</button>
+		</table>
+	</div>
+	
+
+	
+	<div class="app">
+		<div>
+		    <video id="player" src="src/@1.mp4" preload autoplay webkit-playsinline='true' playsinline='true' x-webkit-airplay='true' x5-video-player-type='h5' x5-video-player-fullscreen='true' x5-video-ignore-metadata='true' controlslist="nodownload"></video>
+		</div>
+		
+		<div class="box">
+			<div style="padding-top:20px;padding-left:40px;background-color: #0E0F1A;">		
+			    <a href="https://blog.qltxy.cn/" style="color:#fff;padding-left:12px;font-size:16px;text-decoration:none;">@逆羽</a>
+			</div>
+			<div style="padding-top:15px;padding-left:20px;padding-right:20px;background-color: #0E0F1A;">
+			    <span style="color:#fff;color: #999999;background-color: #0E0F1A;">本程序仅作研究学习演示，视频采集自网络。<a href="../index.html" style="color:#999999;text-decoration:none;">@博客V3.0</a></span>
+			</div>
+			<div id="switch"></div>
+			<div style="padding-top: 30px;padding-left: 20px;padding-right:20px;background-color: #0E0F1A;text-align: center;">
+				<span style="color:#fff;">点击开关选择【开灯】/【关灯】模式</span><br>
+				<span style="color:#fff;">点击按钮选择【连续】/【循环】模式</span><br>
+				<span style="color:#fff;">点击【PASS】按钮刷新播放下一个</span><br>
+			    <span style="color:#fff;">单击视频 播放/暂停</span><br>
+			    <span style="color:#fff;">双击视频进入 全屏播放</span><br>
+			</div>
+			<div style="padding-top: 20px;padding-left: 20px;padding-right:20px;background-color: #0E0F1A;text-align: center;">
+				<button id="bth" class="xhms">单视频循环播放</button>
+			</div>
+			<div style="padding-top: 15px;padding-left: 20px;padding-right:20px;background-color: #0E0F1A;text-align: center;">
+				<button class="pass" onclick="players();">PASS</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="bom">
+		<div style="text-align: center;color:#fff;">
+			<strong>本程序仅作研究学习演示，视频采集自网络。</strong>
+		</div>
+	</div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.allofthelights.js"></script>
+<script src="js/search.js"></script>
+<script src="js/player.js"></script>
+<script src="js/document.js"></script>
+
+</html>
